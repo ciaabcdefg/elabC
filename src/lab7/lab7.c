@@ -218,7 +218,7 @@ void print_tree(tree_t* t) {
 		root = root->parent;
 	}
 
-	for (int i = 0; i < depth(root, t->value) - 1; i++) {
+	for (int i = 0; i < depth(root, t->value); i++) {
 		printf("    ");
 	}
 	printf("%d\n", t->value);
