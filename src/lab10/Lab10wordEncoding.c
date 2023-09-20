@@ -173,42 +173,6 @@ dict_t* delete_min(heap_t* h) {
 	return popped;
 }
 
-void dfs(dict_t* d) {
-	if (d == NULL) {
-		return;
-	}
-
-	if (isNullstring(d->string)) {
-		printf(" %d ", d->frequency);
-	}
-	else
-	{
-		printf("%s ", d->string);
-	}
-	
-	dfs(d->left);
-	dfs(d->right);
-}
-
-void printDict(dict_t* d) {
-	printf("(%d) ->", d->frequency);
-	dfs(d);
-	printf("\n");
-}
-
-void bfs(heap_t* h) {
-	if (h == NULL) return;
-
-	for (int i = 1; i < (h->last_index + 1); i++) {
-		if (isNullstring(h->data[i]->string)) {
-			printDict(h->data[i]);
-		}
-		else {
-			printf("(%s, %d)\n", h->data[i]->string, h->data[i]->frequency);
-		}
-	}
-}
-
 void huffman(heap_t* h) {
 	dict_t* pop1 = delete_min(h);
 	dict_t* pop2 = delete_min(h);
